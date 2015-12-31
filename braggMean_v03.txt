@@ -1,0 +1,40 @@
+
+---- Modify v02 and use STL ----
+
+Replace native arrays with STL "vectors" in the classes "Event" and 
+"BraggStatistic", as described in the following.
+
+***
+Modify the class "Event":
+- replace the array of energies with a std::vector ,
+- remove the number of points, corresponding to the size of the vector,
+- modify the member functions to use the vector in place of the native array.
+In the constructor reserve for the vector a number of elements equal to 
+the max number of points.
+
+***
+Modify the class "BraggStatistic":
+- replace the two arrays for sum of energies and squares for all points
+  with two std::vector ,
+- replace the two arrays for mean and rms energies for all points
+  with two other std::vector ,
+- modify the member functions to use the vectors in place of the native arrays,
+  return a reference-to-const from the functions "eMean" and "eRMS" .
+In the constructor dimension all the vectors at the min number of points, 
+with initial values 0 for the elements.
+
+***
+Modify the "main" function to get mean and rms energies as vectors in place 
+of native arrays. Use a std::string for the input file name.
+
+********* final list of functions *********
+
+main                   modify Mean_v02
+read                   copy   Mean_v02
+dump                   copy   Mean_v02
+
+********* final list of classes   *********
+
+                       .h                            .cc
+Event                  modify Mean_v02               modify Mean_v02
+BraggStatistic         modify Mean_v02               modify Mean_v02
